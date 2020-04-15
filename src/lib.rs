@@ -9,6 +9,6 @@ pub unsafe extern "C" fn napi_register_module_v1(
     let mut local: napi_value = std::mem::zeroed();
     let value = CString::new("world!").expect("CString::new failed");
     napi_create_string_utf8(env, value.as_ptr(), 6, &mut local);
-    //napi_set_named_property(env, exports, key.as_ptr(), local);
+    napi_set_named_property(env, exports, key.as_ptr(), local);
     exports
 }
